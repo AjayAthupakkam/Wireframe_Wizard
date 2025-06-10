@@ -1,0 +1,256 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%; /* White background */
+    --foreground: 0 0% 0%; /* Black text */
+
+    --card: 0 0% 100%; /* White card background */
+    --card-foreground: 0 0% 0%; /* Black text on cards */
+
+    --popover: 0 0% 100%; /* White popover background */
+    --popover-foreground: 0 0% 0%; /* Black text on popovers */
+
+    --primary: 237 100% 64%; /* Cool blue/purple primary color */
+    --primary-foreground: 0 0% 100%; /* White text on primary */
+
+    --secondary: 240 5% 96%; /* Light secondary */
+    --secondary-foreground: 0 0% 0%; /* Black text on secondary */
+
+    --muted: 240 5% 96%; /* Muted color */
+    --muted-foreground: 240 5% 40%; /* Gray muted text */
+
+    --accent: 240 60% 75%; /* Lighter accent color */
+    --accent-foreground: 0 0% 0%; /* Black text on accent */
+
+    --destructive: 0 84.2% 60.2%; /* Red for destructive actions */
+    --destructive-foreground: 0 0% 100%; /* White text on destructive */
+
+    --border: 240 5% 90%; /* Light border */
+    --input: 240 5% 90%; /* Light input */
+    --ring: 237 100% 64%; /* Ring color matches primary */
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 240 10% 8%; /* Dark sidebar */
+    --sidebar-foreground: 0 0% 100%; /* White text on sidebar */
+    --sidebar-primary: 240 60% 60%; /* Sidebar primary */
+    --sidebar-primary-foreground: 0 0% 98%; /* Light text on sidebar primary */
+    --sidebar-accent: 240 10% 15%; /* Sidebar accent */
+    --sidebar-accent-foreground: 0 0% 100%; /* White text on sidebar accent */
+    --sidebar-border: 240 10% 15%; /* Sidebar border */
+    --sidebar-ring: 237 100% 64%; /* Sidebar ring */
+    
+    --brand-purple: 240 60% 65%; /* Updated brand colors */
+    --brand-deep-purple: 240 60% 55%; 
+    --brand-light-purple: 240 60% 85%;
+  }
+
+  .dark {
+    --background: 0 0% 0%; /* Black background */
+    --foreground: 0 0% 100%; /* White text */
+
+    --card: 240 10% 10%; /* Dark card background */
+    --card-foreground: 0 0% 100%; /* White text on cards */
+
+    --popover: 0 0% 0%; /* Black popover background */
+    --popover-foreground: 0 0% 100%; /* White text on popovers */
+
+    --primary: 237 100% 64%; /* Cool blue/purple primary color */
+    --primary-foreground: 0 0% 100%; /* White text on primary */
+
+    --secondary: 240 10% 15%; /* Darker secondary */
+    --secondary-foreground: 0 0% 100%; /* White text on secondary */
+
+    --muted: 240 10% 20%; /* Muted color */
+    --muted-foreground: 240 5% 75%; /* Light gray muted text */
+
+    --accent: 240 60% 75%; /* Lighter accent color */
+    --accent-foreground: 0 0% 0%; /* Black text on accent */
+
+    --destructive: 0 84.2% 60.2%; /* Red for destructive actions */
+    --destructive-foreground: 0 0% 100%; /* White text on destructive */
+
+    --border: 240 10% 20%; /* Darker border */
+    --input: 240 10% 20%; /* Darker input */
+    --ring: 237 100% 64%; /* Ring color matches primary */
+    
+    --sidebar-background: 240 10% 8%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 240 60% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 10% 15%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 240 10% 15%;
+    --sidebar-ring: 237 100% 64%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  .gradient-text {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-[#6366F1] to-[#8B5CF6];
+  }
+
+  .gradient-button {
+    @apply bg-gradient-to-r from-[#6366F1] to-[#8B5CF6] hover:from-[#5253d4] hover:to-[#7a4ce4] transition-all duration-300;
+  }
+
+  .hover-scale {
+    @apply transition-transform duration-300 hover:scale-105;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+  }
+}
+
+/* Animation keyframes */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-down {
+  0% {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes scale-in {
+  0% {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Animation classes */
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out forwards;
+}
+
+.animate-slide-down {
+  animation: slide-down 0.2s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.2s ease-out forwards;
+}
+
+/* Design template categories */
+.category-btn-active {
+  @apply bg-[#6366F1] text-white shadow-md;
+}
+
+.category-btn {
+  @apply bg-white text-gray-700 hover:bg-gray-100 border border-gray-200;
+}
+
+/* Code editor */
+.editor-bg {
+  background-color: #1e1e1e;
+}
+
+.editor-header {
+  background-color: #333333;
+  border-bottom: 1px solid #444444;
+}
+
+.editor-sidebar {
+  background-color: #252526;
+  border-right: 1px solid #444444;
+}
+
+/* Prism syntax highlighting customizations */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #6a9955;
+}
+
+.token.punctuation {
+  color: #d4d4d4;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #b5cea8;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #ce9178;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: #d4d4d4;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: #569cd6;
+}
+
+.token.function,
+.token.class-name {
+  color: #dcdcaa;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+  color: #d16969;
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+.token.entity {
+  cursor: help;
+}
