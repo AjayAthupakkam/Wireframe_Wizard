@@ -3,7 +3,12 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
+import { webcrypto as crypto } from 'crypto';
 
+
+if (typeof crypto.getRandomValues !== 'function') {
+  crypto.getRandomValues = crypto.randomFillSync;
+}
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   server: {
